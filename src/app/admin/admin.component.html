@@ -1,0 +1,113 @@
+<div class="container">
+  <ng4-loading-spinner> </ng4-loading-spinner>
+  <div class="row admin-row">
+    <div class="col-md-12 ">
+      <div *ngIf="authenticated" class="col-md-6 offset-md-3">
+        <h2 style="text-align:center">Upload Pictures</h2>
+        <form [formGroup]="registerForm">
+          <div class="input-group">
+            <span class="input-group-addon"><i><img class="icon" src="https://img.icons8.com/material/24/000000/product.png"></i></span>
+            <label></label>
+            <input placeholder="Product name" type="text" formControlName="imageTitle" class="form-control" />
+          </div>
+          <div class="input-group">
+            <span class="input-group-addon"><i><img class="icon" src="https://img.icons8.com/material/24/000000/rupee.png"></i></span>
+            <input placeholder="Product price" type="text" formControlName="productPrice" class="form-control" />
+
+          </div>
+          <div class="input-group">
+            <span class="input-group-addon"><i><img class="icon" src="https://img.icons8.com/material/24/000000/create-new.png"></i></span>
+            <textarea placeholder="Product Description" rows="1" formControlName="imageDescription" class="form-control"></textarea>
+
+          </div>
+          <div class="input-group">
+            <span class="input-group-addon"><i><img class="icon" src="https://img.icons8.com/material/24/000000/opened-folder.png"></i></span>
+            <select formControlName="imageCategory" class="form-control">
+              <option>Select a category</option>
+              <option *ngFor="let item of categories">{{item}}</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <span class="input-group-addon"><i><img class="icon" src="https://img.icons8.com/material/24/000000/opened-folder.png"></i></span>
+            <select formControlName="imageTags" class="form-control">
+              <option>Select Tags</option>
+              <option *ngFor="let item of tags">{{item}}</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <span class="input-group-addon"><i><img class="icon" src="https://img.icons8.com/material/24/000000/upload.png"></i></span>
+            <div class="custom-file">
+              <input placeholder="" type="file" accept=".png,.jpeg,.jpg" (change)="onImageSelected($event)" class="custom-file-input"
+                id="inputGroupFile02">
+              <label class="custom-file-label" for="inputGroupFile02">{{imageName}}</label>
+            </div>
+          </div>
+          <button style="margin-top:10px" class=" btn btn-success  btn-block" [disabled]="submitted" (click)="onSubmit()">Upload</button>
+        </form>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row admin-row">
+    <div class="col-md-12 ">
+      <div *ngIf="authenticated" class="col-md-6 offset-md-3">
+        <h2 style="text-align:center">Change Footer Details</h2>
+        <form [formGroup]="Adress" (ngSubmit)="submitAdressData()">
+          <div class="input-group">
+            <span class="input-group-addon"><i><img class="icon" src="https://img.icons8.com/material/24/000000/about.png"></i></span>
+            <label></label>
+            <textarea placeholder="About Us" rows="1" formControlName="aboutUs" class="form-control"></textarea>
+          </div>
+          <div class="input-group">
+            <span class="input-group-addon"><i><img class="icon" src="https://img.icons8.com/material/24/000000/worldwide-location.png"></i></span>
+            <textarea placeholder="Address" rows="1" formControlName="adress" class="form-control"></textarea>
+
+          </div>
+          <div class="input-group">
+            <span class="input-group-addon"><i><img class="icon" src="https://img.icons8.com/material/24/000000/filled-message.png"></i></span>
+            <input placeholder="Email" type="email" formControlName="email" class="form-control" />
+
+          </div>
+          <div class="input-group">
+            <span class="input-group-addon"><i><img class="icon" src="https://img.icons8.com/material/24/000000/google-mobile.png"></i></span>
+            <input placeholder="Mobile Number" type="number" formControlName="mobileNumber" class="form-control" />
+
+          </div>
+
+
+          <button style="margin-top:10px" class=" btn btn-success  btn-block" (click)="submitAdressData()">Save Info</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="row admin-row">
+    <div class="col-md-12 ">
+      <div *ngIf="authenticated" class="col-md-6 offset-md-3">
+        <h2 style="text-align:center">Upload Banner Images</h2>
+        <div class="input-group">
+          <span class="input-group-addon"><i><img class="icon" src="https://img.icons8.com/material/24/000000/upload.png"></i></span>
+          <div class="custom-file">
+            <input placeholder="" type="file" accept=".png,.jpeg,.jpg" (change)="onImageBannerSelected($event)" class="custom-file-input"
+              id="inputGroupFile02">
+            <label class="custom-file-label" for="inputGroupFile02">{{bannerImageName}}</label>
+          </div>
+        </div>
+        <button style="margin-top:10px" class=" btn btn-success  btn-block" [disabled]="submitted" (click)="uploadBanner()">Upload</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script>
+  console.log("in");
+
+  $('#inputGroupFile02').on('change', function () {
+    //get the file name
+    var fileName = $(this).val();
+    //replace the "Choose a file" label
+    $(this).next('.custom-file-label').html(fileName);
+  })
+
+</script>

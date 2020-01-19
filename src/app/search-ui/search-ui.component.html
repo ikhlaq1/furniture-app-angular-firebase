@@ -1,0 +1,20 @@
+<h1>My first search app</h1>
+<ais-instantsearch [config]="{
+  appId: '6WC4GMC9WC',
+  apiKey: '775349fb740cca36b51b5751db931cc9',
+  indexName: 'furniture',
+  routing: true
+}">
+  <!-- Widgets here -->
+  <ais-search-box (change)="valuechange($event)" searchAsYouType='true'></ais-search-box>
+<div *ngIf='!showResults; else search'> </div>
+<ng-template #search>
+    <ais-hits >
+        <ng-template let-hits="hits">
+              <div  class="border" *ngFor="let hit of hits">
+                  Hit {{hit.imageDescription}}
+              </div>
+        </ng-template>
+      </ais-hits>
+</ng-template>
+</ais-instantsearch>

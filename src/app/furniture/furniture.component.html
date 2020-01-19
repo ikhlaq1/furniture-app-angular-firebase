@@ -1,0 +1,33 @@
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Furniture Gallery</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css" />
+  </head>
+  
+  <section class="gallery-block cards-gallery">
+      <div class="container">
+        <div class="heading">
+          <h2>Furniture Gallery</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div *ngFor="let item of imageName" class="col-md-6 col-lg-4">
+          <div class="card border-0 transform-on-hover">
+            <div class="lightbox">
+              <a [routerLink]="['/image', item.id]">
+                <img src="{{item.Imageurl}}" alt="Card Image" class="card-img-top">
+              </a>
+            </div>
+            <div class="card-body">
+                <p class="text-muted card-text">{{item.imageTitle}}</p>
+                <p class="text-muted card-text">{{item.productPrice}}</p>
+  
+              <p class="text-muted card-text">{{item.imageDescription}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
