@@ -42,7 +42,7 @@
     "ng6-toastr-notifications": "^1.0.4",
     "ngx-image-zoom": "^0.3.3",
     "ngx-toastr": "^9.1.1",
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "path": "^0.12.7",
     "rxjs": "~6.3.3",
     "typescript": "~3.1.6",
